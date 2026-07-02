@@ -11,6 +11,7 @@
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "backgroundColor": "#25292e",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -18,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.nutritiontracker"
+      "package": "com.anonymous.nutritiontracker",
+      "softwareKeyboardLayoutMode": "resize"
     },
     "web": {
       "output": "static",
