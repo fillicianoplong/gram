@@ -22,7 +22,6 @@ export default function TabLayout() {
         name="logs"
         options={{
           title: "Logs",
-          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? "home-sharp" : "home-outline"} color={color} size={24} />
           ),
@@ -32,7 +31,6 @@ export default function TabLayout() {
         name="food"
         options={{
           title: "Food",
-          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? "restaurant" : "restaurant-outline"} color={color} size={24} />
           ),
@@ -42,7 +40,6 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Profile",
-          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? "person" : "person-outline"}

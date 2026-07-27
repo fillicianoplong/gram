@@ -12,7 +12,7 @@ export default function LogsListScreen() {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={onAdd} hitSlop={8} style={styles.headerButton}>
+        <Pressable onPress={onAdd} hitSlop={8}>
           <Text style={styles.headerAction}>Add</Text>
         </Pressable>
       ),
@@ -37,10 +37,8 @@ const styles = StyleSheet.create({
     color: "#888",
     textAlign: "center",
   },
-  headerButton: {
-    
-  },
   headerAction: {
+    marginRight: 16,
     color: "#ffd33d",
     fontSize: 17,
     fontWeight: "600",
