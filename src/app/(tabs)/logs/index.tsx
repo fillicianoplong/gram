@@ -1,27 +1,54 @@
-import { router, useNavigation } from "expo-router";
-import { useCallback, useLayoutEffect } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { deleteLog, getLogs } from "@/storage/logs";
+import type { Log } from "@/types/log";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
+import { Alert, FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function LogsListScreen() {
-  const navigation = useNavigation();
+  const [logs, setLogs] = useState<Log[]>([]);
 
-  const onAdd = useCallback(() => {
-    router.push("/food");
+  useFocusEffect(
+    useCallback(() => {
+      getLogs().then(setLogs);
+    }, [])
+  );
+
+  const onDelete = useCallback((id: string) => {
+    Alert.alert("Delete log?", "This cannot be undone.", [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: async () => {
+          try {
+            await deleteLog(id);
+            setLogs((prev) => prev.filter((log) => log.id !== id));
+          } catch {
+            Alert.alert("Error", "Failed to delete log.");
+          }
+        },
+      },
+    ]);
   }, []);
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Pressable onPress={onAdd} hitSlop={8}>
-          <Text style={styles.headerAction}>Add</Text>
-        </Pressable>
-      ),
-    });
-  }, [navigation, onAdd]);
-  
   return (
     <View style={styles.container}>
-      <Text style={styles.emptyText}>No logs yet. Tap Add to create one.</Text>
+      <FlatList
+        data={logs}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.logItem}>
+            <Text style={styles.logName}>{item.name}</Text>
+            <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
+              <Ionicons name="trash-bin" size={20} color="#ff8171" />
+            </Pressable>
+          </View>
+        )}
+        ListEmptyComponent={
+          <Text style={styles.emptyText}>No logs yet. Tap + on a food to log it.</Text>
+        }
+      />
     </View>
   );
 }
@@ -30,16 +57,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#25292e",
-    justifyContent: "center",
     padding: 10,
   },
   emptyText: {
     color: "#888",
     textAlign: "center",
   },
-  headerAction: {
-    marginRight: 16,
-    color: "#ffd33d",
+  logItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    marginBottom: 8,
+    borderRadius: 8,
+    backgroundColor: "#35383e",
+  },
+  logName: {
+    flex: 1,
+    color: "#fff",
     fontSize: 17,
     fontWeight: "600",
   },
