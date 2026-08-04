@@ -1,10 +1,11 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { router, useFocusEffect, useNavigation } from "expo-router";
 import { useCallback, useLayoutEffect, useState } from "react";
 import { Alert, FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { deleteFood, getFoods } from "@/storage/foods";
+import { addLogFromFood } from "@/storage/logs";
 import type { Food } from "@/types/food";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function FoodListScreen() {
   const navigation = useNavigation();
@@ -38,6 +39,15 @@ export default function FoodListScreen() {
     ]);
   }, []);
 
+  const onLog = useCallback(async (food: Food) => {
+    try {
+      await addLogFromFood(food);
+      Alert.alert("Log added", "The food has been logged successfully.");
+    } catch {
+      Alert.alert("Error", "Failed to add log.");
+    }
+  }, []);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -56,9 +66,14 @@ export default function FoodListScreen() {
         renderItem={({ item }) => (
           <View style={styles.foodItem}>
             <Text style={styles.foodName}>{item.name}</Text>
-            <Pressable onPress={() => onDelete(item.id)}>
-              <Ionicons name="trash-bin" size={20} color="#ff8171" />
-            </Pressable>
+            <View style={styles.actions}>
+              <Pressable onPress={() => onLog(item)} hitSlop={8}>
+                <Ionicons name="add" size={22} color="#ffd33d" />
+              </Pressable>
+              <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
+                <Ionicons name="trash-bin" size={20} color="#ff8171" />
+              </Pressable>
+            </View>
           </View>
         )}
         ListEmptyComponent={<Text style={styles.emptyText}>No foods yet. Tap Add to create one.</Text>}
@@ -78,7 +93,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   headerAction: {
-    marginRight: 16,
     color: "#ffd33d",
     fontSize: 17,
     fontWeight: "600",
@@ -88,21 +102,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: "#444",
+    marginBottom: 8,
+    borderRadius: 8,
+    backgroundColor: "#35383e",
   },
   foodName: {
+    flex: 1,
     color: "#fff",
     fontSize: 17,
     fontWeight: "600",
   },
-  foodEnergy: {
-    color: "#888",
-    fontSize: 15,
-  },
-  deleteText: {
-    color: "#ff8171",
-    fontSize: 15,
-    fontWeight: "600",
+  actions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 16,
   },
 });
