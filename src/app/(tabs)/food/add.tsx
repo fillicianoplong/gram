@@ -26,7 +26,7 @@ export default function AddFoodScreen() {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={onSave} hitSlop={8} style={styles.saveButton}>
+        <Pressable onPress={onSave} hitSlop={8}>
           <Text style={styles.saveText}>Save</Text>
         </Pressable>
       ),
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    justifyContent: "center",
     paddingHorizontal: 10,
     color: "#fff",
     textAlign: "right",
@@ -100,13 +99,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 260,
   },
-  saveButton: {
-    marginRight: 16,
-  },
   saveText: {
     color: "#ffd33d",
     fontSize: 17,
     fontWeight: "600",
-    marginRight: 0,
   },
 });

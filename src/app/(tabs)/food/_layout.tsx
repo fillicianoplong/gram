@@ -15,6 +15,9 @@ const stackScreenOptions = {
   contentStyle: {
     backgroundColor,
   },
+  headerRightContainerStyle: {
+    paddingRight: 16,
+  },
 };
 
 export default function FoodLayout() {
