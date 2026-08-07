@@ -6,10 +6,10 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'Oops! Not Found' }} />
       <View style={styles.container}>
-        <Link href="../(tabs)/logs/" style={styles.button}>Go to Logs</Link>
+        <Link href="/logs" style={styles.button}>Go to Logs</Link>
       </View>
     </>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
