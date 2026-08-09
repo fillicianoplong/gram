@@ -1,19 +1,19 @@
 import { Stack } from "expo-router";
 
-import { backgroundColor } from "@/theme";
+import { colors } from "@/theme";
 
 const stackScreenOptions = {
   headerShown: true,
   headerStyle: {
-    backgroundColor,
+    backgroundColor: colors.background,
   },
   headerShadowVisible: false,
-  headerTintColor: "#fff",
+  headerTintColor: colors.text,
   headerTitleStyle: {
     fontWeight: "bold" as const,
   },
   contentStyle: {
-    backgroundColor,
+    backgroundColor: colors.background,
   },
   headerRightContainerStyle: {
     paddingRight: 16,

@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import { backgroundColor, navigationTheme } from "@/theme";
+import { colors, navigationTheme } from "@/theme";
 
 export default function RootLayout() {
   return (
@@ -12,7 +12,7 @@ export default function RootLayout() {
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: { backgroundColor },
+            contentStyle: { backgroundColor: colors.background },
           }}
         />
       </ThemeProvider>
@@ -23,6 +23,6 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor,
+    backgroundColor: colors.background,
   },
 });

@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-import { backgroundColor } from "@/theme";
+import { colors } from "@/theme";
 
 export default function LogsLayout() {
   return (
@@ -9,15 +9,15 @@ export default function LogsLayout() {
         headerShown: true,
         title: "Logs",
         headerStyle: {
-          backgroundColor,
+          backgroundColor: colors.background,
         },
         headerShadowVisible: false,
-        headerTintColor: "#fff",
+        headerTintColor: colors.text,
         headerTitleStyle: {
           fontWeight: "bold",
         },
         contentStyle: {
-          backgroundColor,
+          backgroundColor: colors.background,
         },
       }}
     />
