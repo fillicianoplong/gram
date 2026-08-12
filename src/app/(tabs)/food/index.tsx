@@ -5,6 +5,7 @@ import { Alert, FlatList, Pressable, StyleSheet, Text, View } from "react-native
 
 import { deleteFood, getFoods } from "@/storage/foods";
 import { addLogFromFood } from "@/storage/logs";
+import { colors } from "@/theme";
 import type { Food } from "@/types/food";
 
 export default function FoodListScreen() {
@@ -68,10 +69,10 @@ export default function FoodListScreen() {
             <Text style={styles.foodName}>{item.name}</Text>
             <View style={styles.actions}>
               <Pressable onPress={() => onLog(item)} hitSlop={8}>
-                <Ionicons name="add" size={22} color="#ffd33d" />
+                <Ionicons name="add" size={22} color={colors.primary} />
               </Pressable>
               <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
-                <Ionicons name="trash-bin" size={20} color="#ff8171" />
+                <Ionicons name="trash-bin" size={20} color={colors.destructive} />
               </Pressable>
             </View>
           </View>
@@ -85,15 +86,15 @@ export default function FoodListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
     padding: 10,
   },
   emptyText: {
-    color: "#888",
+    color: colors.muted,
     textAlign: "center",
   },
   headerAction: {
-    color: "#ffd33d",
+    color: colors.primary,
     fontSize: 17,
     fontWeight: "600",
   },
@@ -104,11 +105,11 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 8,
     borderRadius: 8,
-    backgroundColor: "#35383e",
+    backgroundColor: colors.surface,
   },
   foodName: {
     flex: 1,
-    color: "#fff",
+    color: colors.text,
     fontSize: 17,
     fontWeight: "600",
   },

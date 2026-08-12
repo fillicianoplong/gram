@@ -1,8 +1,9 @@
 import { addFood } from "@/storage/foods";
+import { colors } from "@/theme";
 import { createEmptyForm, formFields } from "@/types/form";
 import { router, useNavigation } from "expo-router";
 import { useCallback, useLayoutEffect, useState } from "react";
-import { Alert, Button, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function AddFoodScreen() {
   const navigation = useNavigation();
@@ -47,7 +48,7 @@ export default function AddFoodScreen() {
             <TextInput
               style={styles.input}
               placeholder={field.placeholder}
-              placeholderTextColor="#888"
+              placeholderTextColor={colors.muted}
               value={form[field.field]}
               onChangeText={(text) => setForm((prev) => ({ ...prev, [field.field]: text }))}
               keyboardType={field.keyboardType}
@@ -56,7 +57,12 @@ export default function AddFoodScreen() {
         ))}
       </View>
       <View style={styles.buttons}>
-        <Button title="Clear" onPress={() => setForm(createEmptyForm())} />
+        <Pressable
+          onPress={() => setForm(createEmptyForm())}
+          style={styles.clearButton}
+        >
+          <Text style={styles.clearText}>Clear</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
@@ -65,11 +71,11 @@ export default function AddFoodScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
   },
   content: {
     flexGrow: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
     padding: 10,
   },
   form: {
@@ -81,16 +87,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: "#444",
+    borderBottomColor: colors.border,
   },
   label: {
-    color: "#fff",
+    color: colors.text,
   },
   input: {
     flex: 1,
     height: 40,
     paddingHorizontal: 10,
-    color: "#fff",
+    color: colors.text,
     textAlign: "right",
   },
   buttons: {
@@ -99,8 +105,22 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 260,
   },
+  clearButton: {
+    alignSelf: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  clearText: {
+    color: colors.text,
+    fontSize: 17,
+    fontWeight: "600",
+  },
   saveText: {
-    color: "#ffd33d",
+    color: colors.primary,
     fontSize: 17,
     fontWeight: "600",
   },
