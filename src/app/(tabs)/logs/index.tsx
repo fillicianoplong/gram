@@ -1,4 +1,5 @@
 import { deleteLog, getLogs } from "@/storage/logs";
+import { colors } from "@/theme";
 import type { Log } from "@/types/log";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useFocusEffect } from "expo-router";
@@ -41,7 +42,7 @@ export default function LogsListScreen() {
           <View style={styles.logItem}>
             <Text style={styles.logName}>{item.name}</Text>
             <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
-              <Ionicons name="trash-bin" size={20} color="#ff8171" />
+              <Ionicons name="trash-bin" size={20} color={colors.destructive} />
             </Pressable>
           </View>
         )}
@@ -56,11 +57,11 @@ export default function LogsListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
     padding: 10,
   },
   emptyText: {
-    color: "#888",
+    color: colors.muted,
     textAlign: "center",
   },
   logItem: {
@@ -70,11 +71,11 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 8,
     borderRadius: 8,
-    backgroundColor: "#35383e",
+    backgroundColor: colors.surface,
   },
   logName: {
     flex: 1,
-    color: "#fff",
+    color: colors.text,
     fontSize: 17,
     fontWeight: "600",
   },
