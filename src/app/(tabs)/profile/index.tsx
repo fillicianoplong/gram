@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import { colors } from "@/theme";
+
 export default function ProfileScreen() {
   return (
     <View style={styles.container}>
@@ -13,11 +15,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
     padding: 10,
   },
   text: {
-    color: "#fff",
+    color: colors.text,
     textAlign: "center",
   },
 });

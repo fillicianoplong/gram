@@ -1,6 +1,8 @@
 import { Link, Stack } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
+import { colors } from "@/theme";
+
 export default function NotFoundScreen() {
   return (
     <>
@@ -17,11 +19,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#25292e",
+    backgroundColor: colors.background,
   },
   button: {
     fontSize: 20,
     textDecorationLine: "underline",
-    color: "#ffffff",
+    color: colors.text,
   },
 });
