@@ -42,7 +42,7 @@ export default function LogsListScreen() {
           <View style={styles.logItem}>
             <Text style={styles.logName}>{item.name}</Text>
             <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
-              <Ionicons name="trash-bin" size={20} color={colors.destructive} />
+              <Ionicons name="trash-outline" size={20} color={colors.muted} />
             </Pressable>
           </View>
         )}

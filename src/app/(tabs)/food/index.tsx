@@ -72,7 +72,7 @@ export default function FoodListScreen() {
                 <Ionicons name="add" size={22} color={colors.primary} />
               </Pressable>
               <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
-                <Ionicons name="trash-bin" size={20} color={colors.destructive} />
+                <Ionicons name="trash-outline" size={20} color={colors.muted} />
               </Pressable>
             </View>
           </View>
