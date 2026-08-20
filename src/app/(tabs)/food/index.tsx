@@ -66,7 +66,10 @@ export default function FoodListScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.foodItem}>
-            <Text style={styles.foodName}>{item.name}</Text>
+            <View style={styles.content}>
+              <Text style={styles.foodName}>{item.name}</Text>
+              <Text style={styles.energy}>{item.energy} kcal</Text>
+            </View>
             <View style={styles.actions}>
               <Pressable onPress={() => onLog(item)} hitSlop={8}>
                 <Ionicons name="add" size={22} color={colors.primary} />
@@ -107,11 +110,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: colors.surface,
   },
-  foodName: {
+  content: {
     flex: 1,
+    marginRight: 12,
+  },
+  foodName: {
     color: colors.text,
     fontSize: 17,
     fontWeight: "600",
+  },
+  energy: {
+    color: colors.muted,
+    fontSize: 14,
+    marginTop: 2,
   },
   actions: {
     flexDirection: "row",
