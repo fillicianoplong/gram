@@ -40,7 +40,10 @@ export default function LogsListScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.logItem}>
-            <Text style={styles.logName}>{item.name}</Text>
+            <View style={styles.content}>
+              <Text style={styles.logName}>{item.name}</Text>
+              <Text style={styles.energy}>{item.energy} kcal</Text>
+            </View>
             <Pressable onPress={() => onDelete(item.id)} hitSlop={8}>
               <Ionicons name="trash-outline" size={20} color={colors.muted} />
             </Pressable>
@@ -73,10 +76,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: colors.surface,
   },
-  logName: {
+  content: {
     flex: 1,
+    marginRight: 12,
+  },
+  logName: {
     color: colors.text,
     fontSize: 17,
     fontWeight: "600",
+  },
+  energy: {
+    color: colors.muted,
+    fontSize: 14,
+    marginTop: 2,
   },
 });
