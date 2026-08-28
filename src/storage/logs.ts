@@ -15,12 +15,15 @@ export async function getLogs(): Promise<Log[]> {
   return Array.isArray(parsed) ? (parsed as Log[]) : [];
 }
 
-export async function addLogFromFood(food: Food): Promise<Log> {
+export async function addLogFromFood(food: Food, quantity = "1"): Promise<Log> {
   const logs = await getLogs();
+  const { id: foodId, ...fields } = food;
   const log: Log = {
-    ...food,
+    ...fields,
     id: Date.now().toString(),
-    date: new Date().toLocaleDateString(),
+    foodId,
+    loggedAt: new Date().toISOString(),
+    quantity,
   };
   await AsyncStorage.setItem(KEY, JSON.stringify([...logs, log]));
   return log;
