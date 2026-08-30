@@ -1,28 +1,28 @@
 import { addFood } from "@/storage/foods";
 import { colors } from "@/theme";
-import { createEmptyForm, formFields } from "@/types/form";
+import { createEmptyFoodInput, foodFields } from "@/types/food";
 import { router, useNavigation } from "expo-router";
 import { useCallback, useLayoutEffect, useState } from "react";
 import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function AddFoodScreen() {
   const navigation = useNavigation();
-  const [form, setForm] = useState(createEmptyForm);
+  const [foodInput, setFoodInput] = useState(createEmptyFoodInput);
 
   const onSave = useCallback(async () => {
-    if (!form.name.trim() || !form.energy.trim()) {
+    if (!foodInput.name.trim() || !foodInput.energy.trim()) {
       Alert.alert("Missing fields", "Name and energy are required.");
       return;
     }
 
     try {
-      await addFood(form);
-      setForm(createEmptyForm());
+      await addFood(foodInput);
+      setFoodInput(createEmptyFoodInput());
       router.back();
     } catch {
       Alert.alert("Error", "Failed to save food.");
     }
-  }, [form]);
+  }, [foodInput]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -42,15 +42,15 @@ export default function AddFoodScreen() {
       keyboardDismissMode="on-drag"
     >
       <View style={styles.form}>
-        {formFields.map((field) => (
+        {foodFields.map((field) => (
           <View key={field.field} style={styles.formGroup}>
             <Text style={styles.label}>{field.label}</Text>
             <TextInput
               style={styles.input}
               placeholder={field.placeholder}
               placeholderTextColor={colors.muted}
-              value={form[field.field]}
-              onChangeText={(text) => setForm((prev) => ({ ...prev, [field.field]: text }))}
+              value={foodInput[field.field]}
+              onChangeText={(text) => setFoodInput((prev) => ({ ...prev, [field.field]: text }))}
               keyboardType={field.keyboardType}
             />
           </View>
@@ -58,7 +58,7 @@ export default function AddFoodScreen() {
       </View>
       <View style={styles.buttons}>
         <Pressable
-          onPress={() => setForm(createEmptyForm())}
+          onPress={() => setFoodInput(createEmptyFoodInput())}
           style={styles.clearButton}
         >
           <Text style={styles.clearText}>Clear</Text>
