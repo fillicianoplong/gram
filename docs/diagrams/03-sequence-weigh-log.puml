@@ -1,5 +1,5 @@
-@startuml forkcast_sequence_log
-title Forkcast - weigh and log with the app open
+@startuml gram_sequence_log
+title Gram - weigh and log with the app open
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12

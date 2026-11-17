@@ -1,5 +1,5 @@
-@startuml forkcast_use_case
-title Forkcast - use case view
+@startuml gram_use_case
+title Gram - use case view
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12
@@ -12,7 +12,7 @@ actor "USDA FoodData\nCentral" as FDC
 actor "Google Drive\n(user's cloud)" as Cloud
 actor "Android\n(CDM, notifications)" as OS
 
-rectangle "Forkcast (this Android phone)" {
+rectangle "Gram (this Android phone)" {
   usecase "UC-01 Set up on\nfirst launch" as UC01
   usecase "UC-02 Find or\ncreate a food" as UC02
   usecase "UC-03 Log a food\nwithout a scale" as UC03

@@ -1,5 +1,5 @@
-@startuml forkcast_sequence_closed
-title Forkcast - weighing with the app closed (Android)
+@startuml gram_sequence_closed
+title Gram - weighing with the app closed (Android)
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12
