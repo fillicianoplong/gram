@@ -1,5 +1,5 @@
-@startuml forkcast_screen_flow
-title Forkcast - screen flow
+@startuml gram_screen_flow
+title Gram - screen flow
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12

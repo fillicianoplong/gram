@@ -1,6 +1,6 @@
-@startsalt forkcast_today_wireframe
+@startsalt gram_today_wireframe
 skinparam dpi 140
-title Forkcast - Today screen sketch
+title Gram - Today screen sketch
 {+
   { [<] | <b>Thu, Oct 22 (Today) | [>] | [Calendar] }
   { Scale: Kitchen (on) | [Switch] | [Weigh] | [Weigh several] }

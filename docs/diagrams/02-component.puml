@@ -1,5 +1,5 @@
-@startuml forkcast_component
-title Forkcast - component view
+@startuml gram_component
+title Gram - component view
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12
@@ -8,7 +8,7 @@ skinparam componentStyle rectangle
 skinparam ranksep 40
 skinparam nodesep 30
 
-package "Forkcast app (React Native, Expo dev build, Android)" {
+package "Gram app (React Native, Expo dev build, Android)" {
   [Screens\n(Onboarding, Today, Foods, Goals,\nLive weighing, Session,\nProfile, Settings)] as Screens
   [WeighSession] as Session
   [ScaleManager\n(active scale)] as Manager

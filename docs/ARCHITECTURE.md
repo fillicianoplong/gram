@@ -1,8 +1,8 @@
-# Design Document: Forkcast
+# Design Document: Gram
 
 Prepared by: Filliciano Plong · Date: October 23, 2026 · Version: 1.1
 
-**Readers:** Filliciano Plong, to build and test Forkcast's components, app-open saving, and background weighing.
+**Readers:** Filliciano Plong, to build and test Gram's components, app-open saving, and background weighing.
 
 ## Contents
 
@@ -25,7 +25,7 @@ Prepared by: Filliciano Plong · Date: October 23, 2026 · Version: 1.1
 
 ## 1. Context and scope
 
-Forkcast is a local-first Android app that logs food by weight from BLE kitchen scales. Entries are saved only on Log; app-closed weighing only notifies. All data is in one encrypted on-phone database. Requirements are in the Forkcast SRS.
+Gram is a local-first Android app that logs food by weight from BLE kitchen scales. Entries are saved only on Log; app-closed weighing only notifies. All data is in one encrypted on-phone database. Requirements are in the Gram SRS.
 
 - Included: food lookup and logging, scale adapters, live weighing, sessions, Meals and Recipes, the app-closed notification, goals, and backup (SRS sections 1.4 and 2).
 - Excluded: accounts, sync, any app server, background saving, and iOS for now (SRS section 11).
@@ -209,7 +209,7 @@ Other technology choices, which need no record of their own:
 | Field | Record |
 |---|---|
 | Status | Accepted (OD-02); ESN00 protocol to verify with nRF Connect (S-01) |
-| Context | Forkcast should work with many scales. The ESN00 appears to use vendor service 0x1910 (hertzg/metekcity, unverified). A few scales use the standard Weight Scale Service (0x181D), whose finest resolution is 5 g. |
+| Context | Gram should work with many scales. The ESN00 appears to use vendor service 0x1910 (hertzg/metekcity, unverified). A few scales use the standard Weight Scale Service (0x181D), whose finest resolution is 5 g. |
 | Decision | ScaleAdapter maps packets to readings (grams, stable) and commands (tare).<br>• Esn00Adapter first, WssAdapter as a Could (FR-35), one adapter per new model (NFR-33).<br>• ScaleManager picks the active scale (FR-34).<br>• TypeScript parsers tested with captured packets (NFR-34), plus a Kotlin PlacementDetector each (ADR-010). |
 | Alternatives | Scale-specific code inside WeighSession. Weight Scale Service only. |
 | Benefits | Weighing, goals, and logging are vendor-neutral (QS-09). Several scales can be paired (FR-32). |
@@ -394,8 +394,8 @@ Open risks, owner Filliciano Plong. Due is the milestone by which the next step 
 
 ## 7. Maintenance and sources
 
-- Author: Filliciano Plong. Design Document version 1.1, based on the Forkcast SRS version 1.1.
-- Update this document when a requirement changes, a scale adapter or external system is added, a validation prototype finishes, or OD-13 is decided. Requirements: the Forkcast SRS.
+- Author: Filliciano Plong. Design Document version 1.1, based on the Gram SRS version 1.1.
+- Update this document when a requirement changes, a scale adapter or external system is added, a validation prototype finishes, or OD-13 is decided. Requirements: the Gram SRS.
 - Diagrams: PlantUML sources in the diagrams folder, rendered with PlantUML.
 - Testing: a separate test plan document is recommended (SRS section 10).
 

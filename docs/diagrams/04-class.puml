@@ -1,5 +1,5 @@
-@startuml forkcast_class
-title Forkcast - class view (stored data)
+@startuml gram_class
+title Gram - class view (stored data)
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12

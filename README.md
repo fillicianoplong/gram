@@ -1,6 +1,6 @@
-# Forkcast
+# Gram
 
-Forkcast is an Android-first nutrition app that logs food by weight. Put food on a Bluetooth kitchen scale, pick what it is, and Forkcast scales the nutrition facts to the grams and shows your progress against daily goals. No scale? Type grams or servings.
+Gram is an Android-first nutrition app that logs food by weight. Put food on a Bluetooth kitchen scale, pick what it is, and Gram scales the nutrition facts to the grams and shows your progress against daily goals. No scale? Type grams or servings.
 
 **Status:** In development. Requirements and architecture version 1.1 (October 23, 2026). The repo has an early Expo app with a food list, daily logs, and local storage.
 
@@ -31,7 +31,7 @@ Forkcast is an Android-first nutrition app that logs food by weight. Put food on
 | Notifications | expo-notifications; the app-closed notification is posted from Kotlin |
 | Testing and linting | Jest with captured-packet fixtures, the TypeScript typecheck, and ESLint, run in CI |
 
-Forkcast will be released on Google Play, Android first.
+Gram will be released on Google Play, Android first.
 
 ## Run the app
 
@@ -46,8 +46,8 @@ From there you can open a development build, an Android emulator, or Expo Go.
 
 ## Documentation
 
-- [Software Requirements Specification](docs/SRS.md) (version 1.1; also as [Word](docs/Plong_Forkcast_SRS.docx) and [PDF](docs/out/Plong_Forkcast_SRS.pdf))
-- [Architecture (design document)](docs/ARCHITECTURE.md) (version 1.1; also as [Word](docs/Plong_Forkcast_Architecture.docx) and [PDF](docs/out/Plong_Forkcast_Architecture.pdf))
+- [Software Requirements Specification](docs/SRS.md) (version 1.1; also as [Word](docs/Plong_Gram_SRS.docx) and [PDF](docs/out/Plong_Gram_SRS.pdf))
+- [Architecture (design document)](docs/ARCHITECTURE.md) (version 1.1; also as [Word](docs/Plong_Gram_Architecture.docx) and [PDF](docs/out/Plong_Gram_Architecture.pdf))
 - [Diagrams](docs/diagrams/) (PlantUML sources, rendered in [docs/images](docs/images/))
 
 ## License

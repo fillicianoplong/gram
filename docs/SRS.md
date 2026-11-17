@@ -1,4 +1,4 @@
-# Software Requirements Specification: Forkcast
+# Software Requirements Specification: Gram
 
 Prepared by: Filliciano Plong · Date: October 23, 2026 · Version: 1.1
 
@@ -30,19 +30,19 @@ Prepared by: Filliciano Plong · Date: October 23, 2026 · Version: 1.1
 
 ### 1.1 Purpose
 
-This document defines what Forkcast must do. Forkcast is a phone app that logs food by weight. A Bluetooth scale sends the weight, the user names the food, and the app scales its nutrients and tracks daily goals.
+This document defines what Gram must do. Gram is a phone app that logs food by weight. A Bluetooth scale sends the weight, the user names the food, and the app scales its nutrients and tracks daily goals.
 
 ### 1.2 Intended audience
 
-This document is written for Filliciano Plong, the solo developer, to plan, build, and test Forkcast.
+This document is written for Filliciano Plong, the solo developer, to plan, build, and test Gram.
 
 ### 1.3 Problem statement
 
-Weighing food is accurate but slow: typing grams into a calorie app and checking protein or sodium is enough effort that it often does not happen. Forkcast takes the weight from the scale and shows each goal at a glance.
+Weighing food is accurate but slow: typing grams into a calorie app and checking protein or sodium is enough effort that it often does not happen. Gram takes the weight from the scale and shows each goal at a glance.
 
 ### 1.4 Product overview
 
-Forkcast is an Android app, later on Google Play. The user pairs Bluetooth Low Energy (BLE) kitchen scales, starting with the Etekcity ESN00. Placing food on a scale opens the live weighing screen; the user picks the food from USDA FoodData Central, My foods, or a barcode, and taps Log. Only Log saves a weight. Typed grams or servings work with no scale.
+Gram is an Android app, later on Google Play. The user pairs Bluetooth Low Energy (BLE) kitchen scales, starting with the Etekcity ESN00. Placing food on a scale opens the live weighing screen; the user picks the food from USDA FoodData Central, My foods, or a barcode, and taps Log. Only Log saves a weight. Typed grams or servings work with no scale.
 
 With the app closed, weighing posts a notification that opens the live weighing screen; nothing is saved in the background. Several items can be weighed in one container and saved as a Meal or Recipe.
 
@@ -50,14 +50,14 @@ The Today screen shows one day: pinned goals, entries by meal slot, and a nutrie
 
 All data lives in an encrypted database on the phone. There is no account and no server. The user backs up to Google Drive or exports a file.
 
-Starting point: the repository fillicianoplong/forkcast holds an MVP (React Native 0.85, Expo SDK 56, expo-router, TypeScript) with Logs, Food, and Profile tabs, an Add Food label form, and AsyncStorage. Forkcast replaces Logs with Today and the Profile placeholder with Profile and Settings.
+Starting point: the repository fillicianoplong/gram holds an MVP (React Native 0.85, Expo SDK 56, expo-router, TypeScript) with Logs, Food, and Profile tabs, an Add Food label form, and AsyncStorage. Gram replaces Logs with Today and the Profile placeholder with Profile and Settings.
 
 ### 1.5 Definitions
 
 | Term | Meaning |
 |---|---|
-| Paired scale | A BLE kitchen scale the user has added in Forkcast and that a scale adapter supports. |
-| Active scale | The paired scale Forkcast is reading from right now. |
+| Paired scale | A BLE kitchen scale the user has added in Gram and that a scale adapter supports. |
+| Active scale | The paired scale Gram is reading from right now. |
 | Scale adapter | The part of the app that understands one kind of scale and turns its data into readings in grams. |
 | Stable reading | A weight the scale marks as settled, or one that stays inside the stability tolerance for the stability window. |
 | Placement | Putting something on the scale: the reading reaches the minimum weight (2 g by default) and holds for the stability window (section 9.4). |
@@ -101,7 +101,7 @@ The system will not include:
 
 ## 3. User types
 
-Forkcast has one user per phone; for now that is Filliciano. The two roles below are usage patterns the use cases refer to.
+Gram has one user per phone; for now that is Filliciano. The two roles below are usage patterns the use cases refer to.
 
 | User | Role | Experience | Tasks |
 |---|---|---|---|
@@ -122,7 +122,7 @@ Each requirement has one MoSCoW priority for the first Google Play release: Must
 
 ### 4.2 First-run onboarding
 
-- **FR-06 (Should):** The system shall, on first launch, show a short introduction: what Forkcast does, that data stays on the phone, and that no account is needed.
+- **FR-06 (Should):** The system shall, on first launch, show a short introduction: what Gram does, that data stays on the phone, and that no account is needed.
 - **FR-07 (Should):** The system shall offer, in order, to pair a scale, choose units, fill in the profile, and pin goals, each skippable.
 - **FR-08 (Should):** The system shall explain that default goals are FDA Daily Values for a 2,000-calorie diet, not personal advice, and can be customized anytime.
 - **FR-09 (Could):** The system shall let the user show the introduction again from Settings > About.
@@ -315,7 +315,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 
 ## 6. Use cases
 
-### UC-01: Set up Forkcast on first launch
+### UC-01: Set up Gram on first launch
 
 **Primary user:** Daily tracker (section 3)
 
@@ -323,7 +323,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 
 **Requirements:** FR-01, FR-02, FR-03, FR-04, FR-05, FR-06, FR-07, FR-08, FR-74, FR-75, FR-78, FR-79, FR-80, FR-94, NFR-21
 
-**Precondition:** Forkcast is installed on an Android phone and opened for the first time.
+**Precondition:** Gram is installed on an Android phone and opened for the first time.
 
 **Normal sequence:**
 
@@ -337,7 +337,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 **Alternative outcomes:**
 
 - The user skips everything: the Today screen opens with default goals and no scale. Typed grams still work.
-- The phone had the earlier MVP installed: its foods and logs appear in Forkcast.
+- The phone had the earlier MVP installed: its foods and logs appear in Gram.
 
 ### UC-02: Find or create a food
 
@@ -403,7 +403,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 3. The app lists the ESN00. The user selects it, accepts Android's companion device prompt, and names it Kitchen.
 4. The app connects and shows the live weight to confirm.
 
-**Expected result:** Kitchen is a paired scale, and Android reports to Forkcast when it turns on.
+**Expected result:** Kitchen is a paired scale, and Android reports to Gram when it turns on.
 
 **Alternative outcomes:**
 
@@ -447,7 +447,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 
 **Normal sequence:**
 
-1. The user turns the scale on. Android tells Forkcast, which starts its foreground service and connects.
+1. The user turns the scale on. Android tells Gram, which starts its foreground service and connects.
 2. The user places food on the scale. The app posts: Something is being weighed.
 3. The user taps the notification and unlocks the phone.
 4. The live weighing screen opens with the live weight, and the user continues as in UC-05.
@@ -568,7 +568,7 @@ Numbers below are targets for the first release, checked by the acceptance crite
 **Normal sequence:**
 
 1. The user taps Settings > Backup > Back up now. The app writes to its private folder in Google Drive.
-2. On a new phone, the user installs Forkcast, opens Settings > Backup, and taps Restore.
+2. On a new phone, the user installs Gram, opens Settings > Backup, and taps Restore.
 3. The app checks the file and asks before replacing anything.
 
 **Expected result:** All foods, entries, meals, recipes, goals, profile, and settings are restored.
@@ -620,9 +620,9 @@ Numbers below are targets for the first release, checked by the acceptance crite
 - OD-07 FDC key: built in, with an optional personal key (FR-14, section 9.9).
 - OD-08 Android versions: minSdk 31 (Android 12) and targetSdk 36 (Android 16), as Google Play requires from August 31, 2026.
 - OD-09 Platform: Android first, since there is no iOS device to test on. iOS stays a future option (section 11).
-- OD-10 App name: Forkcast.
+- OD-10 App name: Gram.
 - OD-11 Personalized targets: not in this version. DRI targets by age and gender stay a future option (section 11).
-- OD-12 Privacy policy hosting: GitHub Pages from the forkcast repository, linked in the Play listing and Settings > About.
+- OD-12 Privacy policy hosting: GitHub Pages from the gram repository, linked in the Play listing and Settings > About.
 
 ### 7.3 Still open
 
@@ -669,7 +669,7 @@ None of this is verified. Filliciano will check it with nRF Connect (and an HCI 
 
 ### 9.5 Android background weighing
 
-At pairing, Forkcast associates the scale through the Companion Device Manager. When the scale advertises, Android wakes the companion service, which starts a connectedDevice foreground service that reads the scale in Kotlin.
+At pairing, Gram associates the scale through the Companion Device Manager. When the scale advertises, Android wakes the companion service, which starts a connectedDevice foreground service that reads the scale in Kotlin.
 
 Each adapter has a Kotlin detector that applies the placement rule (section 9.4) to grams and stable, and posts the notification. No JavaScript runs, so it works after Android stops the app's process. On open, the service releases the scale to react-native-ble-plx; it stops when the scale turns off.
 
@@ -686,7 +686,7 @@ Each adapter has a Kotlin detector that applies the placement rule (section 9.4)
 | REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND | Start the service from the background when the scale appears | Granted at install |
 | INTERNET | FDC lookups and Google Drive backup | Granted at install |
 
-Forkcast asks for no location permission. Companion pairing may need Location Services switched on; verify on the test phone.
+Gram asks for no location permission. Companion pairing may need Location Services switched on; verify on the test phone.
 
 ### 9.7 Storage, backup file, and Android backup
 
@@ -695,16 +695,16 @@ The database is expo-sqlite with SQLCipher (config plugin), keyed on first launc
 | Part | Backup file |
 |---|---|
 | Content | JSON of every record, never the database file or key. Restore writes records into the phone's own database. |
-| Header | forkcast-backup, format version 1, schema version, app version, created time. Newer format or schema is refused. |
+| Header | gram-backup, format version 1, schema version, app version, created time. Newer format or schema is refused. |
 | Integrity | A SHA-256 checksum of the content, checked before anything is restored. |
 | Encryption | Optional AES-256-GCM, key from PBKDF2-HMAC-SHA256 (600,000 iterations, random 16-byte salt in the header). A wrong passphrase restores nothing. |
-| File | Compressed with gzip and named Forkcast-backup-YYYY-MM-DD.forkcast. Drive keeps the newest file and the one before it. |
+| File | Compressed with gzip and named Gram-backup-YYYY-MM-DD.gram. Drive keeps the newest file and the one before it. |
 
 Cloud backup uses react-native-cloud-storage with Drive's hidden app data folder (drive.appdata). Export and import use the share sheet and file picker.
 
 ### 9.8 Tracked nutrients and Daily Values
 
-Forkcast tracks energy and 43 nutrients. Daily Values are FDA values for ages 4 and up (21 CFR 101.9), kept as one data table. No DV means tracked with no default goal.
+Gram tracks energy and 43 nutrients. Daily Values are FDA values for ages 4 and up (21 CFR 101.9), kept as one data table. No DV means tracked with no default goal.
 
 | Group | Nutrients and Daily Values |
 |---|---|
@@ -730,10 +730,10 @@ expo-camera reads the FR-15 formats. UPC-E is expanded to UPC-A and tried with a
 
 Checked against Google Play Console Help and Google Cloud help on October 22, 2026. Items marked verify must be checked again in Play Console before release.
 
-| Item | Requirement for Forkcast |
+| Item | Requirement for Gram |
 |---|---|
 | Target API level | New apps and app updates must target Android 16 (API level 36) from August 31, 2026; an extension to November 1, 2026 could be requested. |
-| Health apps declaration | Required for every app, including testing tracks. Forkcast declares Nutrition and weight management. Verify follow-up questions. |
+| Health apps declaration | Required for every app, including testing tracks. Gram declares Nutrition and weight management. Verify follow-up questions. |
 | Data safety form | Matches the policy: no server, FDC gets search text or barcodes, backups go to the user's Drive. Review on data-handling changes. |
 | Privacy policy | A public URL (OD-12) in the Play listing and Settings > About, describing on-device storage, FDC queries, and Google Drive backup. |
 | Foreground service declaration | Declare the connectedDevice type in Play Console with a short description and a video showing it runs only while a scale is on. Verify the current form. |
