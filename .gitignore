@@ -35,6 +35,7 @@ android/app/debug/
 .cxx/
 .externalNativeBuild/
 captures/
+.kotlin/
 
 # iOS build output (for later)
 ios/Pods/
@@ -48,6 +49,7 @@ DerivedData/
 # Metro / bundler
 .metro-health-check*
 *.jsbundle
+*.orig.*
 
 # Signing keys and credentials
 *.keystore
@@ -101,3 +103,5 @@ __pycache__/
 docs/build/
 docs/drafts/
 docs/pending_edits.md
+
+example

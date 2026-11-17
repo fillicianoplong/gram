@@ -2,7 +2,7 @@
 
 Forkcast is an Android-first nutrition app that logs food by weight. Put food on a Bluetooth kitchen scale, pick what it is, and Forkcast scales the nutrition facts to the grams and shows your progress against daily goals. No scale? Type grams or servings.
 
-**Status:** In design. Requirements and architecture version 1.1 (October 23, 2026); implementation starting.
+**Status:** In development. Requirements and architecture version 1.1 (October 23, 2026). The repo has an early Expo app with a food list, daily logs, and local storage.
 
 ## Key features
 
@@ -32,6 +32,17 @@ Forkcast is an Android-first nutrition app that logs food by weight. Put food on
 | Testing and linting | Jest with captured-packet fixtures, the TypeScript typecheck, and ESLint, run in CI |
 
 Forkcast will be released on Google Play, Android first.
+
+## Run the app
+
+The Expo app lives at the repo root.
+
+```bash
+npm install
+npx expo start
+```
+
+From there you can open a development build, an Android emulator, or Expo Go.
 
 ## Documentation
 
