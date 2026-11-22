@@ -48,6 +48,7 @@ From there you can open a development build, an Android emulator, or Expo Go.
 
 - [Software Requirements Specification](docs/SRS.md) (version 1.1; also as [Word](docs/Plong_Gram_SRS.docx) and [PDF](docs/out/Plong_Gram_SRS.pdf))
 - [Architecture (design document)](docs/ARCHITECTURE.md) (version 1.1; also as [Word](docs/Plong_Gram_Architecture.docx) and [PDF](docs/out/Plong_Gram_Architecture.pdf))
+- [Implementation Plan](docs/IMPLEMENTATION_PLAN.md) (version 1.0; also as [Word](docs/Plong_Gram_Implementation_Plan.docx) and [PDF](docs/out/Plong_Gram_Implementation_Plan.pdf))
 - [Diagrams](docs/diagrams/) (PlantUML sources, rendered in [docs/images](docs/images/))
 
 ## License
